@@ -12,9 +12,14 @@ import java.util.List;
 public class Reader {
 
 
-    private String path = "/home/ada/Downloads/plik_z_danymi(1).txt";
+    private String path = null;
     private List<String> linesList = new ArrayList<>();
 
+    public Reader(String path) {
+
+        this.path = path;
+        readFile();
+    }
 
     public List<String> getLinesList() {
         return linesList;
@@ -24,7 +29,7 @@ public class Reader {
         this.linesList = linesList;
     }
 
-    public void readFile(){
+    private void readFile(){
 
         try (BufferedReader br = new BufferedReader(new FileReader(path)))
         {
